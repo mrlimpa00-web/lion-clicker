@@ -29,7 +29,6 @@
             margin: 0 auto;
         }
 
-        /* Шапка */
         .header {
             display: flex;
             justify-content: space-between;
@@ -70,7 +69,6 @@
             font-size: 14px;
         }
 
-        /* Царь */
         .lion-container {
             display: flex;
             justify-content: center;
@@ -98,7 +96,6 @@
             50% { transform: translateY(-20px); }
         }
 
-        /* Энергия */
         .energy-container {
             margin: 20px 0;
         }
@@ -127,7 +124,6 @@
             width: 100%;
         }
 
-        /* Статистика */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -161,7 +157,6 @@
             margin-top: 4px;
         }
 
-        /* Меню */
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -196,7 +191,6 @@
             color: #ffd700;
         }
 
-        /* Секции */
         .section {
             display: none;
         }
@@ -205,7 +199,6 @@
             display: block;
         }
 
-        /* Кнопка назад */
         .back-btn {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 215, 0, 0.3);
@@ -223,7 +216,6 @@
             background: rgba(255, 215, 0, 0.2);
         }
 
-        /* Улучшения */
         .upgrades-section {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
@@ -313,7 +305,6 @@
             pointer-events: none;
         }
 
-        /* Сетка пополнения */
         .payment-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -348,7 +339,6 @@
             margin-top: 4px;
         }
 
-        /* Поля ввода */
         .input-field {
             width: 100%;
             padding: 16px;
@@ -371,7 +361,6 @@
             font-weight: bold;
         }
 
-        /* Реферальная ссылка */
         .referral-box {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
@@ -408,7 +397,6 @@
             border: 1px solid rgba(255, 215, 0, 0.2);
         }
 
-        /* Уведомления */
         .toast {
             position: fixed;
             bottom: 30px;
@@ -443,11 +431,6 @@
             border-color: #f44336;
         }
 
-        .toast.info {
-            border-color: #ffd700;
-        }
-
-        /* Кнопки действий */
         .action-btn {
             background: linear-gradient(135deg, #ffd700, #ffa500);
             border: none;
@@ -473,7 +456,6 @@
             color: #ffd700;
         }
 
-        /* Инфо текст */
         .info-text {
             text-align: center;
             color: rgba(255, 255, 255, 0.7);
@@ -489,7 +471,7 @@
 </head>
 <body>
     <div class="container">
-        <!-- Шапка (всегда видна) -->
+        <!-- Шапка -->
         <div class="header">
             <div class="balance">
                 <span class="balance-label">🪙 МОНЕТЫ</span>
@@ -500,16 +482,14 @@
             </div>
         </div>
 
-        <!-- ГЛАВНАЯ СЕКЦИЯ (КЛИКЕР) -->
+        <!-- ГЛАВНАЯ -->
         <div id="mainSection" class="section active">
-            <!-- Царь -->
             <div class="lion-container" onclick="makeClick()">
                 <div class="lion" id="lion">
                     🦁
                 </div>
             </div>
 
-            <!-- Энергия -->
             <div class="energy-container">
                 <div class="energy-text">
                     <span>⚡ ЭНЕРГИЯ</span>
@@ -520,7 +500,6 @@
                 </div>
             </div>
 
-            <!-- Статистика -->
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-icon">👆</div>
@@ -544,7 +523,6 @@
                 </div>
             </div>
 
-            <!-- Меню -->
             <div class="menu-grid">
                 <div class="menu-item" onclick="showSection('upgradesSection')">
                     <div class="menu-icon">⚡</div>
@@ -565,7 +543,7 @@
             </div>
         </div>
 
-        <!-- СЕКЦИЯ УЛУЧШЕНИЙ -->
+        <!-- УЛУЧШЕНИЯ -->
         <div id="upgradesSection" class="section">
             <div class="back-btn" onclick="showSection('mainSection')">
                 🔙 НАЗАД
@@ -577,13 +555,12 @@
                     💰 Твой баланс: <span class="highlight" id="upgradeBalance">0</span> монет
                 </div>
                 <div id="upgradesList">
-                    <!-- Заглушка загрузки -->
                     <div style="text-align: center; padding: 30px;">Загрузка улучшений...</div>
                 </div>
             </div>
         </div>
 
-        <!-- СЕКЦИЯ ПОПОЛНЕНИЯ -->
+        <!-- ПОПОЛНЕНИЕ -->
         <div id="paymentSection" class="section">
             <div class="back-btn" onclick="showSection('mainSection')">
                 🔙 НАЗАД
@@ -597,9 +574,7 @@
                     Мин. пополнение: 100₽
                 </div>
 
-                <div class="payment-grid" id="paymentGrid">
-                    <!-- JS заполнит -->
-                </div>
+                <div class="payment-grid" id="paymentGrid"></div>
 
                 <button class="action-btn secondary" onclick="customPayment()">
                     💳 ДРУГАЯ СУММА
@@ -611,7 +586,7 @@
             </div>
         </div>
 
-        <!-- СЕКЦИЯ ВЫВОДА -->
+        <!-- ВЫВОД -->
         <div id="withdrawSection" class="section">
             <div class="back-btn" onclick="showSection('mainSection')">
                 🔙 НАЗАД
@@ -638,14 +613,10 @@
                 <button class="action-btn" onclick="requestWithdraw()">
                     💸 ЗАПРОСИТЬ ВЫВОД
                 </button>
-
-                <div class="info-text">
-                    Вывод обрабатывается вручную администратором
-                </div>
             </div>
         </div>
 
-        <!-- СЕКЦИЯ РЕФЕРАЛОВ -->
+        <!-- РЕФЕРАЛЫ -->
         <div id="referralSection" class="section">
             <div class="back-btn" onclick="showSection('mainSection')">
                 🔙 НАЗАД
@@ -674,7 +645,6 @@
         </div>
     </div>
 
-    <!-- Уведомление -->
     <div id="toast" class="toast"></div>
 
     <script>
@@ -701,31 +671,13 @@
         };
 
         // Загрузка данных при старте
-        async function loadUserData() {
+        function loadUserData() {
             showToast('Загрузка данных...', 'info');
             
-            try {
-                // Отправляем запрос в бота
-                tg.sendData(JSON.stringify({
-                    action: 'get_user_data'
-                }));
-            } catch (e) {
-                console.log('Offline mode - демо данные');
-                // Демо данные для теста
-                userData = {
-                    ...userData,
-                    coins: 15420,
-                    clicks: 1234,
-                    click_power: 7,
-                    energy: 65,
-                    max_energy: 120,
-                    critical_chance: 12,
-                    critical_multiplier: 3,
-                    referrals: 5,
-                    active_upgrades: 3
-                };
-                updateUI();
-            }
+            // Отправляем запрос в бота
+            tg.sendData(JSON.stringify({
+                action: 'get_user_data'
+            }));
         }
 
         // Обновление интерфейса
@@ -740,53 +692,55 @@
             document.getElementById('energyDisplay').textContent = `${userData.energy}/${userData.max_energy}`;
             document.getElementById('energyBar').style.width = (userData.energy / userData.max_energy * 100) + '%';
             
-            // Уровень (примерный расчет)
             const level = Math.floor(userData.click_power / 2) + 1;
             document.getElementById('levelInfo').textContent = `👑 УРОВЕНЬ ${level}`;
             
-            // Баланс в секции улучшений
             const upgradeBalance = document.getElementById('upgradeBalance');
             if (upgradeBalance) upgradeBalance.textContent = userData.coins.toLocaleString();
             
-            // Реферальная ссылка
-            const botUsername = 'critical_killbot'; // Имя твоего бота
+            const botUsername = 'critical_killbot';
             document.getElementById('referralLink').textContent = `https://t.me/${botUsername}?start=${userData.user_id}`;
         }
 
-        // Клик по льву
+        // Клик
         function makeClick() {
             if (userData.energy <= 0) {
                 showToast('⚡ НЕТ ЭНЕРГИИ!', 'error');
                 return;
             }
 
-            // Отправляем клик в бота
-            tg.sendData(JSON.stringify({
-                action: 'click'
-            }));
-
-            // Визуальный эффект
             const lion = document.getElementById('lion');
             lion.style.transform = 'scale(0.8)';
             setTimeout(() => lion.style.transform = 'scale(1)', 100);
 
-            // Показываем эффект
-            showToast('+1 🪙', 'success');
+            // Отправляем клик
+            tg.sendData(JSON.stringify({
+                action: 'click'
+            }));
+
+            // Показываем эффект (временный)
+            showToast('+ 🪙', 'success');
         }
 
         // Обработка ответов от бота
         tg.onEvent('webAppData', function(data) {
             try {
+                console.log('Получены данные:', data);
                 const response = JSON.parse(data);
                 
-                if (response.coins !== undefined) {
-                    // Обновляем данные пользователя
+                if (response.user_id !== undefined) {
+                    // Это данные пользователя
                     userData = { ...userData, ...response };
                     updateUI();
+                    showToast('✅ Данные загружены', 'success');
                 }
                 
-                if (response.reward) {
+                if (response.reward !== undefined) {
                     // Это результат клика
+                    userData.coins = response.new_coins;
+                    userData.energy = response.new_energy;
+                    userData.clicks = response.new_clicks;
+                    updateUI();
                     showToast(`+${response.reward} 🪙 ${response.is_critical ? '💥 КРИТ!' : ''}`, 'success');
                 }
                 
@@ -795,12 +749,11 @@
                 }
                 
                 if (response.payment_url) {
-                    // Открываем ссылку на оплату
                     window.open(response.payment_url, '_blank');
                 }
                 
             } catch (e) {
-                console.log('Ответ от бота:', data);
+                console.log('Ошибка парсинга:', e);
             }
         });
 
@@ -821,44 +774,9 @@
             const upgradesList = document.getElementById('upgradesList');
             upgradesList.innerHTML = '<div style="text-align: center; padding: 30px;">Загрузка...</div>';
             
-            // Запрашиваем у бота
             tg.sendData(JSON.stringify({
                 action: 'get_upgrades'
             }));
-            
-            // Демо данные для теста
-            setTimeout(() => {
-                const upgrades = [
-                    { id: 1, icon: '👊', name: 'Маленький коготь', desc: '+1 к силе клика на 7 дней', price_rub: 50, price_coins: 500 },
-                    { id: 2, icon: '👊', name: 'Средний коготь', desc: '+2 к силе клика на 7 дней', price_rub: 90, price_coins: 900 },
-                    { id: 3, icon: '👊', name: 'Большой коготь', desc: '+3 к силе клика на 7 дней', price_rub: 130, price_coins: 1300 },
-                    { id: 4, icon: '🔋', name: 'Малая грива', desc: '+10 энергии на 7 дней', price_rub: 60, price_coins: 600 },
-                    { id: 5, icon: '🔋', name: 'Средняя грива', desc: '+20 энергии на 7 дней', price_rub: 110, price_coins: 1100 },
-                    { id: 6, icon: '💥', name: 'Глаз охотника', desc: '+2% крит шанса на 7 дней', price_rub: 70, price_coins: 700 },
-                ];
-                
-                let html = '';
-                upgrades.forEach(u => {
-                    const canBuy = userData.coins >= u.price_coins;
-                    html += `
-                        <div class="upgrade-item">
-                            <div class="upgrade-icon">${u.icon}</div>
-                            <div class="upgrade-info">
-                                <div class="upgrade-name">${u.name}</div>
-                                <div class="upgrade-desc">${u.desc}</div>
-                            </div>
-                            <div class="upgrade-price">
-                                <span class="price-rub">${u.price_rub}₽</span>
-                                <span class="price-coins">${u.price_coins}🪙</span>
-                            </div>
-                            <button class="buy-btn ${!canBuy ? 'disabled' : ''}" onclick="buyUpgrade(${u.id})">
-                                КУПИТЬ
-                            </button>
-                        </div>
-                    `;
-                });
-                upgradesList.innerHTML = html;
-            }, 500);
         }
 
         // Покупка улучшения
@@ -867,7 +785,6 @@
                 action: 'buy_upgrade',
                 upgrade_id: upgradeId
             }));
-            
             showToast('⏳ Запрос отправлен...', 'info');
         }
 
@@ -895,7 +812,6 @@
                 action: 'create_payment',
                 amount: amount
             }));
-            
             showToast('⏳ Создание платежа...', 'info');
         }
 
@@ -913,13 +829,13 @@
             tg.close();
         }
 
-        // Обновление количества монет при вводе суммы вывода
+        // Обновление количества монет
         function updateCoinsNeeded() {
             const rub = parseInt(document.getElementById('withdrawAmount').value) || 0;
             document.getElementById('coinsNeeded').textContent = (rub * 200).toLocaleString();
         }
 
-        // Форматирование номера карты
+        // Форматирование карты
         function formatCardNumber(input) {
             let value = input.value.replace(/\D/g, '');
             let formatted = '';
@@ -954,7 +870,7 @@
             showToast('⏳ Заявка отправляется...', 'info');
         }
 
-        // Копирование реферальной ссылки
+        // Копирование ссылки
         function copyReferralLink() {
             const link = document.getElementById('referralLink').textContent;
             
@@ -963,7 +879,6 @@
                     showToast('📋 Ссылка скопирована!', 'success');
                 });
             } else {
-                // Fallback
                 const textarea = document.createElement('textarea');
                 textarea.value = link;
                 document.body.appendChild(textarea);
@@ -974,7 +889,7 @@
             }
         }
 
-        // Показ уведомления
+        // Уведомление
         function showToast(message, type = 'info') {
             const toast = document.getElementById('toast');
             toast.textContent = message;
@@ -985,7 +900,7 @@
             }, 2000);
         }
 
-        // Восстановление энергии (каждую минуту)
+        // Восстановление энергии
         setInterval(() => {
             if (userData.energy < userData.max_energy) {
                 userData.energy = Math.min(userData.energy + 1, userData.max_energy);
@@ -994,21 +909,7 @@
         }, 60000);
 
         // Загрузка при старте
-        loadUserData();
-
-        // Обработка сообщений от бота
-        window.addEventListener('message', function(event) {
-            try {
-                const data = JSON.parse(event.data);
-                if (data.type === 'user_data') {
-                    userData = { ...userData, ...data };
-                    updateUI();
-                }
-            } catch (e) {}
-        });
-
-        // Сообщаем боту что приложение загружено
-        tg.ready();
+        setTimeout(loadUserData, 500);
     </script>
 </body>
 </html>
