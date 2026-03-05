@@ -12,6 +12,7 @@
             box-sizing: border-box;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
+
         body {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             min-height: 100vh;
@@ -21,11 +22,14 @@
             color: white;
             padding: 16px;
         }
+
         .container {
             max-width: 500px;
             width: 100%;
             margin: 0 auto;
         }
+
+        /* Шапка */
         .header {
             display: flex;
             justify-content: space-between;
@@ -36,53 +40,69 @@
             border-radius: 20px;
             padding: 16px;
             margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(255, 215, 0, 0.1);
         }
+
         .balance {
             display: flex;
             flex-direction: column;
         }
+
         .balance-label {
             font-size: 12px;
             color: #ffd700;
             opacity: 0.8;
         }
+
         .balance-value {
             font-size: 28px;
             font-weight: bold;
             color: #ffd700;
             text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
+
         .level {
             background: linear-gradient(135deg, #ffd700, #ffa500);
             padding: 10px 18px;
             border-radius: 30px;
             color: #1a1a2e;
             font-weight: bold;
+            font-size: 14px;
         }
+
+        /* Царь */
         .lion-container {
             display: flex;
             justify-content: center;
             align-items: center;
             margin: 20px 0;
+            position: relative;
             cursor: pointer;
         }
+
         .lion {
             font-size: 220px;
             transition: transform 0.1s;
             filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.5));
             animation: float 3s ease-in-out infinite;
             user-select: none;
+            -webkit-tap-highlight-color: transparent;
         }
+
         .lion:active {
             transform: scale(0.9);
         }
+
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
         }
+
+        /* Энергия */
         .energy-container {
             margin: 20px 0;
         }
+
         .energy-text {
             display: flex;
             justify-content: space-between;
@@ -90,6 +110,7 @@
             color: #ffd700;
             margin-bottom: 8px;
         }
+
         .energy-bar-bg {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 30px;
@@ -97,18 +118,23 @@
             overflow: hidden;
             border: 1px solid rgba(255, 215, 0, 0.3);
         }
+
         .energy-bar-fill {
             height: 100%;
             background: linear-gradient(90deg, #ffd700, #ffa500);
             border-radius: 30px;
             transition: width 0.3s;
+            width: 100%;
         }
+
+        /* Статистика */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 12px;
             margin: 20px 0;
         }
+
         .stat-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
@@ -117,25 +143,32 @@
             padding: 16px;
             text-align: center;
         }
+
         .stat-icon {
             font-size: 28px;
             margin-bottom: 8px;
         }
+
         .stat-label {
             font-size: 12px;
             color: rgba(255, 255, 255, 0.7);
         }
+
         .stat-value {
             font-size: 20px;
             font-weight: bold;
             color: #ffd700;
+            margin-top: 4px;
         }
+
+        /* Меню */
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 12px;
             margin: 20px 0;
         }
+
         .menu-item {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
@@ -144,25 +177,35 @@
             padding: 16px;
             text-align: center;
             cursor: pointer;
+            transition: all 0.2s;
         }
+
         .menu-item:active {
             background: rgba(255, 215, 0, 0.2);
+            transform: scale(0.97);
         }
+
         .menu-icon {
             font-size: 32px;
             margin-bottom: 8px;
         }
+
         .menu-text {
             font-size: 14px;
             font-weight: bold;
             color: #ffd700;
         }
+
+        /* Секции */
         .section {
             display: none;
         }
+
         .section.active {
             display: block;
         }
+
+        /* Кнопка назад */
         .back-btn {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 215, 0, 0.3);
@@ -175,6 +218,197 @@
             font-weight: bold;
             color: #ffd700;
         }
+
+        .back-btn:active {
+            background: rgba(255, 215, 0, 0.2);
+        }
+
+        /* Улучшения */
+        .upgrades-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .upgrade-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .upgrade-icon {
+            font-size: 32px;
+            margin-right: 12px;
+        }
+
+        .upgrade-info {
+            flex: 1;
+        }
+
+        .upgrade-name {
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 4px;
+            font-size: 16px;
+        }
+
+        .upgrade-desc {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .upgrade-price {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            margin-right: 12px;
+        }
+
+        .price-rub {
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .price-coins {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .buy-btn {
+            background: linear-gradient(135deg, #ffd700, #ffa500);
+            border: none;
+            color: #1a1a2e;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 14px;
+        }
+
+        .buy-btn:active {
+            transform: scale(0.95);
+            opacity: 0.9;
+        }
+
+        .buy-btn.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        /* Сетка пополнения */
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .payment-btn {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 16px;
+            padding: 16px 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .payment-btn:active {
+            background: rgba(255, 215, 0, 0.3);
+            transform: scale(0.97);
+        }
+
+        .payment-amount {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        .payment-coins {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 4px;
+        }
+
+        /* Поля ввода */
+        .input-field {
+            width: 100%;
+            padding: 16px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 16px;
+            color: white;
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #ffd700;
+        }
+
+        .input-label {
+            margin-bottom: 8px;
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        /* Реферальная ссылка */
+        .referral-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .referral-stats {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .referral-count {
+            font-size: 48px;
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        .referral-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .referral-link {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 16px;
+            padding: 16px;
+            margin-top: 16px;
+            word-break: break-all;
+            font-size: 14px;
+            color: #ffd700;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        /* Уведомления */
         .toast {
             position: fixed;
             bottom: 30px;
@@ -184,73 +418,98 @@
             backdrop-filter: blur(10px);
             border: 2px solid #ffd700;
             border-radius: 16px;
-            padding: 16px;
+            padding: 16px 20px;
             text-align: center;
             color: white;
             transform: translateY(100px);
             opacity: 0;
             transition: all 0.3s;
+            max-width: 400px;
+            margin: 0 auto;
             z-index: 1000;
+            font-weight: bold;
         }
+
         .toast.show {
             transform: translateY(0);
             opacity: 1;
         }
+
         .toast.success {
             border-color: #4CAF50;
         }
+
         .toast.error {
             border-color: #f44336;
         }
-        .payment-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin: 20px 0;
+
+        .toast.info {
+            border-color: #ffd700;
         }
-        .payment-btn {
-            background: rgba(255, 215, 0, 0.1);
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            border-radius: 16px;
-            padding: 16px 8px;
-            text-align: center;
-            cursor: pointer;
-        }
-        .payment-amount {
-            font-size: 18px;
+
+        /* Кнопки действий */
+        .action-btn {
+            background: linear-gradient(135deg, #ffd700, #ffa500);
+            border: none;
+            color: #1a1a2e;
+            padding: 16px;
+            border-radius: 30px;
             font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+            width: 100%;
+            font-size: 16px;
+            margin: 8px 0;
+        }
+
+        .action-btn:active {
+            transform: scale(0.97);
+            opacity: 0.9;
+        }
+
+        .action-btn.secondary {
+            background: transparent;
+            border: 2px solid #ffd700;
             color: #ffd700;
         }
-        .payment-coins {
-            font-size: 12px;
+
+        /* Инфо текст */
+        .info-text {
+            text-align: center;
             color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            margin: 16px 0;
         }
-        .upgrade-item {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 16px;
-            padding: 16px;
-            margin-bottom: 12px;
-            border: 1px solid rgba(255, 215, 0, 0.1);
+
+        .highlight {
+            color: #ffd700;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Шапка -->
+        <!-- Шапка (всегда видна) -->
         <div class="header">
             <div class="balance">
                 <span class="balance-label">🪙 МОНЕТЫ</span>
                 <span class="balance-value" id="balance">0</span>
             </div>
-            <div class="level" id="levelInfo">👑 УРОВЕНЬ 1</div>
+            <div class="level" id="levelInfo">
+                👑 УРОВЕНЬ 1
+            </div>
         </div>
 
-        <!-- ГЛАВНАЯ -->
+        <!-- ГЛАВНАЯ СЕКЦИЯ (КЛИКЕР) -->
         <div id="mainSection" class="section active">
+            <!-- Царь -->
             <div class="lion-container" id="lionBtn">
-                <div class="lion">🦁</div>
+                <div class="lion" id="lion">
+                    🦁
+                </div>
             </div>
 
+            <!-- Энергия -->
             <div class="energy-container">
                 <div class="energy-text">
                     <span>⚡ ЭНЕРГИЯ</span>
@@ -261,6 +520,7 @@
                 </div>
             </div>
 
+            <!-- Статистика -->
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-icon">👆</div>
@@ -284,6 +544,7 @@
                 </div>
             </div>
 
+            <!-- Меню -->
             <div class="menu-grid">
                 <div class="menu-item" onclick="showSection('upgradesSection')">
                     <div class="menu-icon">⚡</div>
@@ -293,6 +554,10 @@
                     <div class="menu-icon">💰</div>
                     <div class="menu-text">ПОПОЛНИТЬ</div>
                 </div>
+                <div class="menu-item" onclick="showSection('withdrawSection')">
+                    <div class="menu-icon">💸</div>
+                    <div class="menu-text">ВЫВЕСТИ</div>
+                </div>
                 <div class="menu-item" onclick="showSection('referralSection')">
                     <div class="menu-icon">👥</div>
                     <div class="menu-text">РЕФЕРАЛЫ</div>
@@ -300,86 +565,209 @@
             </div>
         </div>
 
-        <!-- УЛУЧШЕНИЯ -->
+        <!-- СЕКЦИЯ УЛУЧШЕНИЙ -->
         <div id="upgradesSection" class="section">
-            <div class="back-btn" onclick="showSection('mainSection')">🔙 НАЗАД</div>
-            <div id="upgradesList"></div>
+            <div class="back-btn" onclick="showSection('mainSection')">
+                🔙 НАЗАД
+            </div>
+
+            <div class="upgrades-section">
+                <div class="section-title">⚡ УЛУЧШЕНИЯ</div>
+                <div class="info-text">
+                    💰 Твой баланс: <span class="highlight" id="upgradeBalance">0</span> монет
+                </div>
+                <div id="upgradesList">
+                    <div style="text-align: center; padding: 30px;">Загрузка улучшений...</div>
+                </div>
+            </div>
         </div>
 
-        <!-- ПОПОЛНЕНИЕ -->
+        <!-- СЕКЦИЯ ПОПОЛНЕНИЯ -->
         <div id="paymentSection" class="section">
-            <div class="back-btn" onclick="showSection('mainSection')">🔙 НАЗАД</div>
-            <div class="payment-grid" id="paymentGrid"></div>
+            <div class="back-btn" onclick="showSection('mainSection')">
+                🔙 НАЗАД
+            </div>
+
+            <div class="upgrades-section">
+                <div class="section-title">💰 ПОПОЛНЕНИЕ</div>
+                
+                <div class="info-text">
+                    Курс: 1₽ = 10 монет<br>
+                    Мин. пополнение: 100₽
+                </div>
+
+                <div class="payment-grid" id="paymentGrid"></div>
+
+                <button class="action-btn secondary" onclick="customPayment()">
+                    💳 ДРУГАЯ СУММА
+                </button>
+
+                <button class="action-btn" onclick="manualPayment()">
+                    📸 ОПЛАТИТЬ ПО КАРТЕ
+                </button>
+            </div>
         </div>
 
-        <!-- РЕФЕРАЛЫ -->
+        <!-- СЕКЦИЯ ВЫВОДА -->
+        <div id="withdrawSection" class="section">
+            <div class="back-btn" onclick="showSection('mainSection')">
+                🔙 НАЗАД
+            </div>
+
+            <div class="upgrades-section">
+                <div class="section-title">💸 ВЫВОД</div>
+                
+                <div class="info-text">
+                    Курс: 200 монет = 1₽<br>
+                    Мин. вывод: 200₽ (40000 монет)
+                </div>
+
+                <div class="input-label">Сумма в рублях:</div>
+                <input type="number" class="input-field" id="withdrawAmount" placeholder="от 200" oninput="updateCoinsNeeded()">
+                
+                <div class="info-text">
+                    Потребуется: <span class="highlight" id="coinsNeeded">0</span> монет
+                </div>
+
+                <div class="input-label">Номер карты:</div>
+                <input type="text" class="input-field" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCardNumber(this)">
+
+                <button class="action-btn" onclick="requestWithdraw()">
+                    💸 ЗАПРОСИТЬ ВЫВОД
+                </button>
+
+                <div class="info-text">
+                    Вывод обрабатывается вручную администратором
+                </div>
+            </div>
+        </div>
+
+        <!-- СЕКЦИЯ РЕФЕРАЛОВ -->
         <div id="referralSection" class="section">
-            <div class="back-btn" onclick="showSection('mainSection')">🔙 НАЗАД</div>
-            <div class="referral-link" id="referralLink"></div>
+            <div class="back-btn" onclick="showSection('mainSection')">
+                🔙 НАЗАД
+            </div>
+
+            <div class="referral-box">
+                <div class="section-title">👥 РЕФЕРАЛЫ</div>
+                
+                <div class="referral-stats">
+                    <div class="referral-count" id="referralsCount">0</div>
+                    <div class="referral-label">приглашено друзей</div>
+                </div>
+
+                <div class="info-text">
+                    За каждого друга ты получаешь 100 монет!
+                </div>
+
+                <div class="referral-link" id="referralLink">
+                    Загрузка...
+                </div>
+
+                <button class="action-btn" onclick="copyReferralLink()">
+                    📋 КОПИРОВАТЬ ССЫЛКУ
+                </button>
+            </div>
         </div>
     </div>
 
+    <!-- Уведомление -->
     <div id="toast" class="toast"></div>
 
     <script>
+        // Telegram WebApp
         const tg = window.Telegram.WebApp;
         tg.expand();
         tg.ready();
+        tg.enableClosingConfirmation();
 
+        // Данные пользователя
         let userData = {
+            user_id: tg.initDataUnsafe?.user?.id || 0,
+            username: tg.initDataUnsafe?.user?.username || '',
+            first_name: tg.initDataUnsafe?.user?.first_name || 'Царь',
             coins: 0,
             clicks: 0,
             click_power: 1,
             energy: 100,
             max_energy: 100,
             critical_chance: 5,
+            critical_multiplier: 2,
+            referrals: 0,
             active_upgrades: 0
         };
 
-        // Загружаем данные сразу
+        // Загрузка данных при старте
         function loadUserData() {
-            console.log("📤 Запрашиваем данные...");
-            tg.sendData(JSON.stringify({ action: 'get_user_data' }));
+            showToast('Загрузка данных...', 'info');
+            
+            // Отправляем запрос в бота
+            tg.sendData(JSON.stringify({
+                action: 'get_user_data'
+            }));
+        }
+
+        // Обновление интерфейса
+        function updateUI() {
+            document.getElementById('balance').textContent = userData.coins.toLocaleString();
+            document.getElementById('clicks').textContent = userData.clicks.toLocaleString();
+            document.getElementById('clickPower').textContent = userData.click_power;
+            document.getElementById('critChance').textContent = userData.critical_chance + '%';
+            document.getElementById('activeBoosts').textContent = userData.active_upgrades;
+            document.getElementById('referralsCount').textContent = userData.referrals;
+            
+            document.getElementById('energyDisplay').textContent = `${userData.energy}/${userData.max_energy}`;
+            document.getElementById('energyBar').style.width = (userData.energy / userData.max_energy * 100) + '%';
+            
+            const level = Math.floor(userData.click_power / 2) + 1;
+            document.getElementById('levelInfo').textContent = `👑 УРОВЕНЬ ${level}`;
+            
+            const upgradeBalance = document.getElementById('upgradeBalance');
+            if (upgradeBalance) upgradeBalance.textContent = userData.coins.toLocaleString();
+            
+            const botUsername = 'critical_killbot';
+            document.getElementById('referralLink').textContent = `https://t.me/${botUsername}?start=${userData.user_id}`;
         }
 
         // Обработка ответов от бота
         tg.onEvent('webAppData', function(data) {
-            console.log("📥 Получены данные:", data);
+            console.log('📥 Получены данные:', data);
             try {
                 const response = JSON.parse(data);
-                console.log("✅ Распарсили:", response);
+                console.log('✅ Распарсили:', response);
                 
-                if (response.coins !== undefined) {
-                    userData = response;
+                if (response.user_id !== undefined) {
+                    // Это данные пользователя
+                    userData = { ...userData, ...response };
                     updateUI();
                     showToast('✅ Данные загружены', 'success');
                 }
                 
-                if (response.reward) {
+                if (response.reward !== undefined) {
+                    // Это результат клика
                     userData.coins = response.new_coins;
                     userData.energy = response.new_energy;
                     userData.clicks = response.new_clicks;
                     updateUI();
-                    showToast(`+${response.reward} монет!`, 'success');
+                    showToast(`+${response.reward} 🪙 ${response.is_critical ? '💥 КРИТ!' : ''}`, 'success');
                 }
-            } catch(e) {
-                console.log("❌ Ошибка парсинга:", e);
+                
+                if (response.error) {
+                    showToast(response.error, 'error');
+                }
+                
+                if (response.payment_url) {
+                    window.open(response.payment_url, '_blank');
+                }
+                
+                if (response.success && response.name) {
+                    showToast(`✅ Куплено: ${response.name}`, 'success');
+                }
+                
+            } catch (e) {
+                console.log('❌ Ошибка парсинга:', e);
             }
         });
-
-        // Обновление интерфейса
-        function updateUI() {
-            document.getElementById('balance').textContent = userData.coins;
-            document.getElementById('clicks').textContent = userData.clicks;
-            document.getElementById('clickPower').textContent = userData.click_power;
-            document.getElementById('critChance').textContent = userData.critical_chance + '%';
-            document.getElementById('activeBoosts').textContent = userData.active_upgrades;
-            document.getElementById('energyDisplay').textContent = `${userData.energy}/${userData.max_energy}`;
-            document.getElementById('energyBar').style.width = (userData.energy / userData.max_energy * 100) + '%';
-            
-            let level = Math.floor(userData.click_power / 2) + 1;
-            document.getElementById('levelInfo').textContent = `👑 УРОВЕНЬ ${level}`;
-        }
 
         // Клик
         document.getElementById('lionBtn').addEventListener('click', function() {
@@ -387,11 +775,15 @@
                 showToast('⚡ НЕТ ЭНЕРГИИ!', 'error');
                 return;
             }
-            
-            document.querySelector('.lion').style.transform = 'scale(0.8)';
-            setTimeout(() => document.querySelector('.lion').style.transform = 'scale(1)', 100);
-            
-            tg.sendData(JSON.stringify({ action: 'click' }));
+
+            const lion = document.getElementById('lion');
+            lion.style.transform = 'scale(0.8)';
+            setTimeout(() => lion.style.transform = 'scale(1)', 100);
+
+            // Отправляем клик
+            tg.sendData(JSON.stringify({
+                action: 'click'
+            }));
         });
 
         // Показать секцию
@@ -399,38 +791,188 @@
             document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
             document.getElementById(sectionId).classList.add('active');
             
-            if (sectionId === 'paymentSection') {
-                let html = '';
-                [100, 300, 500, 1000, 2500, 5000].forEach(amount => {
-                    html += `<div class="payment-btn" onclick="pay(${amount})">
-                        <div class="payment-amount">${amount}₽</div>
-                        <div class="payment-coins">+${amount*10} 🪙</div>
-                    </div>`;
-                });
-                document.getElementById('paymentGrid').innerHTML = html;
-            }
-            
-            if (sectionId === 'referralSection') {
-                let botUsername = 'critical_killbot';
-                let userId = tg.initDataUnsafe?.user?.id || 0;
-                document.getElementById('referralLink').innerHTML = 
-                    `https://t.me/${botUsername}?start=${userId}`;
+            if (sectionId === 'upgradesSection') {
+                loadUpgrades();
+            } else if (sectionId === 'paymentSection') {
+                loadPaymentOptions();
             }
         }
 
-        function pay(amount) {
-            tg.sendData(JSON.stringify({ action: 'create_payment', amount: amount }));
+        // Загрузка улучшений
+        function loadUpgrades() {
+            const upgradesList = document.getElementById('upgradesList');
+            upgradesList.innerHTML = '<div style="text-align: center; padding: 30px;">Загрузка...</div>';
+            
+            tg.sendData(JSON.stringify({
+                action: 'get_upgrades'
+            }));
+            
+            // Демо данные пока бот не ответит
+            setTimeout(() => {
+                if (upgradesList.innerHTML.includes('Загрузка')) {
+                    const upgrades = [
+                        { id: 1, icon: '👊', name: 'Маленький коготь', desc: '+1 к силе клика на 7 дней', price_rub: 50, price_coins: 500 },
+                        { id: 2, icon: '👊', name: 'Средний коготь', desc: '+2 к силе клика на 7 дней', price_rub: 90, price_coins: 900 },
+                        { id: 3, icon: '👊', name: 'Большой коготь', desc: '+3 к силе клика на 7 дней', price_rub: 130, price_coins: 1300 },
+                        { id: 4, icon: '🔋', name: 'Малая грива', desc: '+10 энергии на 7 дней', price_rub: 60, price_coins: 600 },
+                        { id: 5, icon: '🔋', name: 'Средняя грива', desc: '+20 энергии на 7 дней', price_rub: 110, price_coins: 1100 },
+                        { id: 6, icon: '💥', name: 'Глаз охотника', desc: '+2% крит шанса на 7 дней', price_rub: 70, price_coins: 700 },
+                    ];
+                    
+                    let html = '';
+                    upgrades.forEach(u => {
+                        const canBuy = userData.coins >= u.price_coins;
+                        html += `
+                            <div class="upgrade-item">
+                                <div class="upgrade-icon">${u.icon}</div>
+                                <div class="upgrade-info">
+                                    <div class="upgrade-name">${u.name}</div>
+                                    <div class="upgrade-desc">${u.desc}</div>
+                                </div>
+                                <div class="upgrade-price">
+                                    <span class="price-rub">${u.price_rub}₽</span>
+                                    <span class="price-coins">${u.price_coins}🪙</span>
+                                </div>
+                                <button class="buy-btn ${!canBuy ? 'disabled' : ''}" onclick="buyUpgrade(${u.id})">
+                                    КУПИТЬ
+                                </button>
+                            </div>
+                        `;
+                    });
+                    upgradesList.innerHTML = html;
+                }
+            }, 2000);
+        }
+
+        // Покупка улучшения
+        function buyUpgrade(upgradeId) {
+            if (userData.coins < 500) {
+                showToast('❌ Недостаточно монет!', 'error');
+                return;
+            }
+            
+            tg.sendData(JSON.stringify({
+                action: 'buy_upgrade',
+                upgrade_id: upgradeId
+            }));
+            
+            showToast('⏳ Запрос отправлен...', 'info');
+        }
+
+        // Загрузка вариантов пополнения
+        function loadPaymentOptions() {
+            const paymentGrid = document.getElementById('paymentGrid');
+            const amounts = [100, 300, 500, 1000, 2500, 5000];
+            
+            let html = '';
+            amounts.forEach(amount => {
+                html += `
+                    <div class="payment-btn" onclick="initiatePayment(${amount})">
+                        <div class="payment-amount">${amount}₽</div>
+                        <div class="payment-coins">+${amount * 10} 🪙</div>
+                    </div>
+                `;
+            });
+            
+            paymentGrid.innerHTML = html;
+        }
+
+        // Инициализация платежа
+        function initiatePayment(amount) {
+            tg.sendData(JSON.stringify({
+                action: 'create_payment',
+                amount: amount
+            }));
+            
             showToast('⏳ Создание платежа...', 'info');
         }
 
-        function showToast(msg, type) {
-            let toast = document.getElementById('toast');
-            toast.textContent = msg;
-            toast.className = 'toast ' + type + ' show';
-            setTimeout(() => toast.classList.remove('show'), 2000);
+        // Другая сумма
+        function customPayment() {
+            const amount = prompt('Введите сумму в рублях (от 100):');
+            if (amount && parseInt(amount) >= 100) {
+                initiatePayment(parseInt(amount));
+            }
         }
 
-        // Восстановление энергии
+        // Ручная оплата
+        function manualPayment() {
+            showToast('📱 Отправьте скриншот перевода в чат с ботом', 'info');
+            tg.close();
+        }
+
+        // Обновление количества монет при вводе суммы вывода
+        function updateCoinsNeeded() {
+            const rub = parseInt(document.getElementById('withdrawAmount').value) || 0;
+            document.getElementById('coinsNeeded').textContent = (rub * 200).toLocaleString();
+        }
+
+        // Форматирование номера карты
+        function formatCardNumber(input) {
+            let value = input.value.replace(/\D/g, '');
+            let formatted = '';
+            for (let i = 0; i < value.length; i++) {
+                if (i > 0 && i % 4 === 0) formatted += ' ';
+                formatted += value[i];
+            }
+            input.value = formatted;
+        }
+
+        // Запрос вывода
+        function requestWithdraw() {
+            const rubAmount = parseInt(document.getElementById('withdrawAmount').value);
+            const cardNumber = document.getElementById('cardNumber').value.replace(/\s/g, '');
+            
+            if (!rubAmount || rubAmount < 200) {
+                showToast('❌ Минимальная сумма 200 рублей!', 'error');
+                return;
+            }
+            
+            if (!cardNumber || cardNumber.length !== 16 || !/^\d+$/.test(cardNumber)) {
+                showToast('❌ Введите номер карты (16 цифр)!', 'error');
+                return;
+            }
+            
+            tg.sendData(JSON.stringify({
+                action: 'withdraw',
+                rub_amount: rubAmount,
+                card_number: cardNumber
+            }));
+            
+            showToast('⏳ Заявка отправляется...', 'info');
+        }
+
+        // Копирование реферальной ссылки
+        function copyReferralLink() {
+            const link = document.getElementById('referralLink').textContent;
+            
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(link).then(() => {
+                    showToast('📋 Ссылка скопирована!', 'success');
+                });
+            } else {
+                const textarea = document.createElement('textarea');
+                textarea.value = link;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                showToast('📋 Ссылка скопирована!', 'success');
+            }
+        }
+
+        // Показ уведомления
+        function showToast(message, type = 'info') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = 'toast ' + type + ' show';
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+
+        // Восстановление энергии (каждую минуту)
         setInterval(() => {
             if (userData.energy < userData.max_energy) {
                 userData.energy = Math.min(userData.energy + 1, userData.max_energy);
